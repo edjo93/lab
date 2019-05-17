@@ -19,7 +19,8 @@ int main(){
 				int num;
 				cout<<"ingrese numero: ";
 				cin>>num;
-				
+			        
+				//test	
 				
                                 break;
 
@@ -55,4 +56,4 @@ bool es primo(int num){
 
 }
 
-
+//test
