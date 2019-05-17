@@ -7,6 +7,7 @@ void imprimir_array(int*,int );
 bool es_primo(int);//prototipo de funcion
 void generar_primos(int*,int);
 int* get_array(int );
+void free_array(int*);
 int main(){
     int size=25;
     int*array=NULL;
@@ -35,10 +36,10 @@ int main(){
 				imprimir_array(array,size);
 
 				
-
+        
 
 				//no olvidemos liberar memoria con delete
-				
+                                free_array(array);
                                 break;
 
                         case '3': 
@@ -82,14 +83,7 @@ int* get_array(int size){
 
 }
 
-void free_array(int*array){
-	//libera memoria reservada a un array con una condicion
-	if(array!=NULL){
-		delete[] array;
-		array=NULL;//buena practica asignar null al apuntador del arreglo ya liberado
-	}
-	
-}
+
 
 //funcion para llenar el arreglo con los primeros numeros primos
 void generar_primos(int*array,int size){
@@ -105,5 +99,14 @@ void imprimir_array(int*array,int size){
 	for(int i=0;i<size;i++){
 		cout<<"["<<array[i]<<"]";
 	}
+	
 }
 
+void free_array(int*array){
+        //libera memoria reservada a un array con una condicion
+        if(array!=NULL){
+                delete[] array;
+                array=NULL;//buena practica asignar null al apuntador del arreglo ya liberado
+        }   
+	
+}
