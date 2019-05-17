@@ -15,6 +15,12 @@ int main(){
                         case '1':
                                 break;
                         case '2':
+				//numero ingresado
+				int num;
+				cout<<"ingrese numero: ";
+				cin>>num;
+				
+				
                                 break;
 
                         case '3': 
@@ -48,4 +54,5 @@ bool es primo(int num){
 	return counter==2;//si el counter es 2 significa que el numero es divisible solamente entre 1 y el mismo
 
 }
+
 
