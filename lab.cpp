@@ -3,15 +3,27 @@ using std::cout;
 using std::endl;
 using std::cin;
 
+#include<string>
+using std::string;
+
+#include<sstream>
+using std::stringstream;
+
+#include<vector>
+using std::vector;
+
 void imprimir_array(int*,int );
 bool es_primo(int);//prototipo de funcion
 void generar_primos(int*,int);
 int* get_array(int );
 void free_array(int*);
-tring calculadoraPrimos(int*,int);
+string calculadoraPrimos(int*,int);
 int main(){
-    int size=25;
-    int*array=NULL;
+        int size=25;
+        int*array=NULL;
+        
+        
+        
 	// menu repetitivo
 	char opcion;
         do{
@@ -34,11 +46,11 @@ int main(){
 				
 				generar_primos(array,size);
 
-				imprimir_array(array,size);
+				//imprimir_array(array,size);
 
 				//el array de primos contiene informacion necesaria para construir los datos solicitados
                                 
-                                
+                                cout<<calculadoraPrimos(array,num);
         
 
 				//no olvidemos liberar memoria con delete
@@ -113,13 +125,52 @@ void free_array(int*array){
         }   
 	
 }
-string calculadoraPrimos(int*array,int size){
+string calculadoraPrimos(int*array,int num){
+        bool comprobacion=false;
+        stringstream stream;
+        string resultado="";
+        vector <int> exponentes;
+        vector <int> bases;
         int counter=0;//exponente del numero primo
         int pull=0;//controla la extraccion del datos del arreglo
+        int pullArray=0;//controla la extraccion de datos del arreglo
         
-        while(!(num/array[pull])){//mientras la divison iterativa no llegue al final siga
-                
+        while(!comprobacion){// no se haya comprobado
+                if(num%array[pull]==0){
+                        num=num/array[pull];//el numero cambia
+                        
+                        counter++;//aumenta el exponente del numero primo
+                        if(num==1){
+                                //se suben los datos porque ya no se ingresa al caso else
+                                
+                                bases.push_back(array[pull]);
+                                exponentes.push_back(counter);
+                                
+                                comprobacion=true;
+                        }
+                }else{//fallo de la comprobacion
+                                pullArray=pull;//elemento temporal
+                                pull++;
+                                if(counter>0){//se agrega el contador al vector
+                                        bases.push_back(array[pullArray]);
+                                        exponentes.push_back(counter);      
+                                }                                
+                                
+                                counter=0;
+                        
+                }
                 
         }
         
+        //dependemos de uno de los 2 vectores para hacer la salida(size)
+        
+        for(int i=0;i<bases.size();i++){
+                
+                //stream.clear();
+                stream<<bases.at(i) <<"^"<<exponentes.at(i)<<"*";
+                
+                resultado=stream.str();
+        }
+        
+        return resultado;
 }
