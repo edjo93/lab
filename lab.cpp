@@ -3,20 +3,23 @@ using std::cout;
 using std::endl;
 using std::cin;
 
+void imprimir_array(int*,int );
 bool es_primo(int);//prototipo de funcion
 void generar_primos(int*,int);
-
+int* get_array(int );
 int main(){
+    int size=25;
+    int*array=NULL;
 	// menu repetitivo
 	char opcion;
         do{
-                cout<<"\ningrese una opcion\n1.op1\n2.op2\n3.op3\n4.salir\n\n?:";cin>>opcion;
+                cout<<"\ningrese una opcion\n1.op1\n2.teorema fund. aritmetica\n3.op3\n4.salir\n\n?:";cin>>opcion;
                 //la opcion es procesada en una estructura de casos
                 switch(opcion){
                         case '1':
                                 break;
                         case '2':
-				int array size=25;
+				
 				//numero ingresado
 				int num;
 				cout<<"ingrese numero: ";
@@ -24,7 +27,8 @@ int main(){
 
 				//validar numero si es necesario
 				
-				int*array=get_array(size);//el array contendra los 25 primeros numeros primos
+				
+				array=get_array(size);//el array contendra los 25 primeros numeros primos
 				
 				generar_primos(array,size);
 
@@ -94,6 +98,12 @@ void generar_primos(int*array,int size){
 		if(es_primo(i)){//si el numero a probar es primo se agrega al arreglo
 			array[add++]=i;
 		}
+	}
+}
+
+void imprimir_array(int*array,int size){
+	for(int i=0;i<size;i++){
+		cout<<"["<<array[i]<<"]";
 	}
 }
 
