@@ -3,7 +3,7 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-bool es primo(int);//prototipo de funcion
+bool es_primo(int);//prototipo de funcion
 
 int main(){
 	// menu repetitivo
@@ -19,8 +19,6 @@ int main(){
 				int num;
 				cout<<"ingrese numero: ";
 				cin>>num;
-			        
-				//test	
 				
                                 break;
 
@@ -40,7 +38,7 @@ int main(){
 //definicion de funcion
 
 //la funcion es primo devuelve verdadero cuando valida un numero primo
-bool es primo(int num){
+bool es_primo(int num){
   	 
        	int counter=0;
   
@@ -56,4 +54,4 @@ bool es primo(int num){
 
 }
 
-//test
+
