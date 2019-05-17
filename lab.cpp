@@ -4,6 +4,7 @@ using std::endl;
 using std::cin;
 
 bool es_primo(int);//prototipo de funcion
+void generar_primos(int*,int);
 
 int main(){
 	// menu repetitivo
@@ -15,10 +16,24 @@ int main(){
                         case '1':
                                 break;
                         case '2':
+				int array size=25;
 				//numero ingresado
 				int num;
 				cout<<"ingrese numero: ";
 				cin>>num;
+
+				//validar numero si es necesario
+				
+				int*array=get_array(size);//el array contendra los 25 primeros numeros primos
+				
+				generar_primos(array,size);
+
+				imprimir_array(array,size);
+
+				
+
+
+				//no olvidemos liberar memoria con delete
 				
                                 break;
 
@@ -54,4 +69,31 @@ bool es_primo(int num){
 
 }
 
+int* get_array(int size){
+	//devuelve un apuntador a un array
+	int* array=NULL;
+	array=new int[size];
+	
+	return array;
+
+}
+
+void free_array(int*array){
+	//libera memoria reservada a un array con una condicion
+	if(array!=NULL){
+		delete[] array;
+		array=NULL;//buena practica asignar null al apuntador del arreglo ya liberado
+	}
+	
+}
+
+//funcion para llenar el arreglo con los primeros numeros primos
+void generar_primos(int*array,int size){
+	int add=0;//controla el ingreso de datos al arreglo
+	for(int i=1;i<=100;i++){//los primeros 25 numeros primos estan entre 1 y 100
+		if(es_primo(i)){//si el numero a probar es primo se agrega al arreglo
+			array[add++]=i;
+		}
+	}
+}
 
