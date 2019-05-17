@@ -8,6 +8,7 @@ bool es_primo(int);//prototipo de funcion
 void generar_primos(int*,int);
 int* get_array(int );
 void free_array(int*);
+tring calculadoraPrimos(int*,int);
 int main(){
     int size=25;
     int*array=NULL;
@@ -35,7 +36,9 @@ int main(){
 
 				imprimir_array(array,size);
 
-				
+				//el array de primos contiene informacion necesaria para construir los datos solicitados
+                                
+                                
         
 
 				//no olvidemos liberar memoria con delete
@@ -109,4 +112,14 @@ void free_array(int*array){
                 array=NULL;//buena practica asignar null al apuntador del arreglo ya liberado
         }   
 	
+}
+string calculadoraPrimos(int*array,int size){
+        int counter=0;//exponente del numero primo
+        int pull=0;//controla la extraccion del datos del arreglo
+        
+        while(!(num/array[pull])){//mientras la divison iterativa no llegue al final siga
+                
+                
+        }
+        
 }
